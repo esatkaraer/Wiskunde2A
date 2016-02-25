@@ -1,0 +1,38 @@
+﻿@model Wiskunde2A.Models.Question
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script>
+  $(function() {
+      $("#show").click(function () {
+          $("#uitwerkingen").fadeToggle();
+      });
+      $("#showantwoord").click(function () {
+          $("#antwoord").fadeToggle();
+      });
+  });
+</script>
+
+<h3>@Model._Question</h3>
+
+
+<button id="show" style="margin-bottom:10px">Uitwerkingen</button>
+
+    <div id="uitwerkingen" style="display: none;background-color:gainsboro">
+        <p>@Model.Elaboration</p>
+    </div>
+
+<button id="showantwoord" style="margin-bottom:10px">Antwoord</button>
+
+<div id="antwoord" style="display: none;background-color:gainsboro">
+    <p>@Model.Answer</p>
+</div>
+
+<input type="button" value="Volgende vraag" onclick="location.href='@Url.Action("Index", "Questions")'" />
+
